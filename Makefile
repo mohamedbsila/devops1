@@ -1,28 +1,11 @@
-# Makefile for Maven build
-
-# Define variables
-MAVEN_CMD = mvn
-
-# Targets
-.PHONY: build clean install deploy
+# Makefile
 
 # Default target
+all: build
+
+# Build target
 build:
-	@echo "Building the project..."
-	$(MAVEN_CMD) clean install
-
-# Clean target
-clean:
-	@echo "Cleaning the project..."
-	$(MAVEN_CMD) clean
-
-# Install target
-install:
-	@echo "Installing the project..."
-	$(MAVEN_CMD) install
-
-# Deploy target (optional)
-deploy:
-	@echo "Deploying the project..."
-	$(MAVEN_CMD) deploy
+    # Add your build commands here
+    echo "Building the project..."
+    # Replace this with the actual build commands
 
