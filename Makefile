@@ -1,9 +1,11 @@
-# Makefile for basic build process
+# Makefile example
 
-# Default target
-all: build
-
-# Build target
+# This is the build target
 build:
-    echo "Building the project..."
+    @echo "Building the project..."
+    # Add your build commands here, e.g., for a Node.js project:
+    # npm install
+    # npm run build
+
+# Add other targets if needed
 
