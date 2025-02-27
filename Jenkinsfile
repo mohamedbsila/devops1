@@ -1,16 +1,26 @@
 pipeline {
     agent any
+
     stages {
-        stage('GIT') {
+        stage('Cleanup') {
             steps {
-                git branch: 'main', url: 'https://github.com/mohamedbsila/devops1.git'
+                sh 'rm -rf *'  // Clean workspace before cloning
             }
         }
-        stage('compile') {
+
+        stage('GIT Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/mohamedbsila/devops1.git'  // Correct repository URL
+                sh 'ls -la'  // Check if pom.xml is in the workspace
+            }
+        }
+
+        stage('Compile') {
             steps {
                 sh 'mvn clean compile'
             }
         }
+
         stage('MVN SONARQUBE') {
             steps {
                 withSonarQubeEnv('SonarQube') {
