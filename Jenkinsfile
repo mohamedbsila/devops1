@@ -1,21 +1,22 @@
 pipeline {
     agent any
-    tools {
-        jdk 'JAVA_HOME'
-        maven 'M2_HOME'
-    }
     stages {
         stage('GIT') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/mohamedbsila/devops.git'
+                git branch: 'main', url: 'https://github.com/mohamedbsila/devops.git'
             }
         }
-        stage('Compile Stage') {
+        stage('compile') {
             steps {
                 sh 'mvn clean compile'
             }
         }
+        stage('MVN SONARQUBE') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
     }
 }
-
