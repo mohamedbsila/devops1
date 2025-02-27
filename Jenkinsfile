@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('GIT') {
             steps {
-                git branch: 'main', url: 'https://github.com/mohamedbsila/devops.git'
+                git branch: 'main', url: 'https://github.com/mohamedbsila/devops1.git'
             }
         }
         stage('compile') {
