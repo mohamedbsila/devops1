@@ -1,9 +1,7 @@
 pipeline {
     agent any
 
-    environment {
-    //    SONAR_TOKEN = credentials('sonar-token')  // Assurez-vous que 'sonar-token' est ajouté dans Jenkins Credentials
-    }
+
 
     stages {
         stage('Cleanup') {
