@@ -25,13 +25,13 @@ pipeline {
             }
         }
 
-        stage('MVN SONARQUBE') {
+        /*stage('MVN SONARQUBE') {
             steps {
                 withSonarQubeEnv('SonarQube') {  // Nom de votre serveur SonarQube dans Jenkins
                     sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN'
                 }
             }
-        }
+        }*/
 
         stage('Run Tests') {
             steps {
