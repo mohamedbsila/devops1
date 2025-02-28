@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Cleanup') {
             steps {
-                sh 'rm -rf *'  // Clean workspace before cloning
+                sh 'rm -rf *'
             }
         }
 
         stage('GIT Clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/mohamedbsila/devops1.git'  // Correct repository URL
-                sh 'ls -la'  // Check if pom.xml is in the workspace
+                git branch: 'main', url: 'https://github.com/mohamedbsila/devops1.git'
+                sh 'ls -la'
             }
         }
 
@@ -23,8 +23,8 @@ pipeline {
 
         stage('MVN SONARQUBE') {
             steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
+                withSonarQubeEnv('SonarQube') {  // Ensure this matches your configured name in Jenkins
+                    sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN'
                 }
             }
         }
