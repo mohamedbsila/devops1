@@ -38,7 +38,7 @@ pipeline {
             //}
       //  }
 
-        stage('Build Package') {
+      /*  stage('Build Package') {
             steps {
                 sh 'mvn clean package -DskipTests'  // Génération du fichier JAR sans exécuter les tests
             }
@@ -49,7 +49,7 @@ pipeline {
               //  withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'admin', passwordVariable: 'admin123')]) {
                     sh 'mvn deploy -DskipTests';
                 }
-            }
+            }*/
         }
     }
 
