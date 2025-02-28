@@ -25,13 +25,14 @@ pipeline {
             }
         }
 
+        // Commented out SonarQube stage
         //stage('MVN SONARQUBE') {
-          //  steps {
-            //    withSonarQubeEnv('SonarQube') {  // Nom de votre serveur SonarQube dans Jenkins
-              //      sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN'
-               // }
-            }//
-       // }
+        //    steps {
+        //        withSonarQubeEnv('SonarQube') {
+        //            sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN'
+        //        }
+        //    }
+        //}
 
         stage('Run Tests') {
             steps {
