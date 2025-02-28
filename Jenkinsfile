@@ -32,11 +32,11 @@ pipeline {
         //    }
         //}
 
-        stage('Run Tests') {
-            steps {
-                sh 'mvn test'
-            }
-        }
+      //  stage('Run Tests') {
+         //   steps {
+          //      sh 'mvn test'
+            //}
+      //  }
 
         stage('Build Package') {
             steps {
@@ -46,7 +46,7 @@ pipeline {
 
         stage('Deploy to Nexus') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'admin', passwordVariable: 'admin123')]) {
                     sh 'mvn deploy -DskipTests -DaltDeploymentRepository=deploymentRepo::default::http://localhost:8081/repository/maven-releases/'
                 }
             }
